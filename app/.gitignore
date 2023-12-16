@@ -13,7 +13,8 @@
 
 
 # backups
-./Backup/.zip
+./Backup
+.zip
 
 
 # public
