@@ -1,0 +1,29 @@
+** TECNICOS
+NOME
+INICIO NA FUNCAO
+
+**PVS
+NOME
+INICIO NA FUNÇÃO
+
+** VENDEDORES
+NOME
+INICIO NA FUNÇÃO
+
+
+npx create-react-app app
+npm install react-icons --save
+npm install -g json-server
+npm install react-router-dom
+
+in package.json put in "scripts" a seguinte linha:
+"server": "json-server --watch src/data.json"
+para todar use npm run server
+
+npm install react-data-table-component styled-components
+
+
+
+Para rodar na pasta app 
+1º npm run server
+2° npm start

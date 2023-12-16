@@ -1,0 +1,41 @@
+.flex-container-botoes{
+     margin: 15px 15px;
+     display: flex;
+     flex-direction: row;
+     flex-wrap: nowrap;
+     justify-content: center;
+ }
+ 
+ .flex-container-botoes div {
+     width: 150px;
+     height: 40px;
+ }
+ 
+ .card-itens {
+     /*Alinhamento*/
+     display: flex;
+     align-items: center; 
+     justify-content: center; 
+
+
+     background-color: #000;
+     color: #fff;   
+     font-family: sans-serif;
+     cursor:pointer;
+     border-radius: 8px;
+     margin: auto;
+
+
+ }
+ 
+ .card-itens:hover {
+      background-color: #FF9900;
+ }
+
+ .tabela{
+     display: flex;
+     align-items: center; 
+     justify-content: center; 
+     border: solid 2px #FF9900;
+     height: 100%;
+ }
