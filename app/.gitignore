@@ -16,10 +16,6 @@
 ./Backup
 .zip
 
-
-# public
-/public
-
 # misc
 .DS_Store
 .env.local
