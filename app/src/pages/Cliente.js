@@ -1,22 +1,23 @@
-import React from 'react'
+import React, { useState, useContext } from "react";
 
-//css
+//importando contexto
+import { SidebarStateContext} from "../contexts/SidebarStateContext";
 
 //components
 import MainHeader from '../components/MainHeader';
 
+
+//css
+import styles from './Cliente.module.css'
+
 const Cliente = () => {
-  return (
-     <div className="container">
-          <div className="Header">
-          <MainHeader titulo='Clientes'></MainHeader>  
-          </div>
-          <div className="VertMenu">
-          </div>
-          <div className="Main">
-               Centro
-          </div>
-          <div className="Footer"></div>
+   const {sideClose, setsideClose } = useContext(SidebarStateContext);
+
+   const classeSideBar = sideClose ? `${styles.mainContainer} ${styles.sidebarClose}` : `${styles.mainContainer}`
+   return (
+     <div className={classeSideBar}>
+        <MainHeader titulo='Clientes'></MainHeader>          
+     
      </div>
   )
 }

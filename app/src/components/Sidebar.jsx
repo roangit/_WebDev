@@ -1,35 +1,42 @@
-import React, { useRef } from 'react';
-import { FaTools, FaHandsHelping, FaWpforms, FaTachometerAlt } from "react-icons/fa";
-import { CgMenuGridO } from "react-icons/cg";
-/* outros boms icones
-FaCog - engrenagem, FaWrench - 1 chave boca
-*/
+import React, { useRef, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 
-//css
-import "./Sidebar.css";
+//importando icones
+import { FaTools, FaHandsHelping, FaWpforms, FaTachometerAlt } from "react-icons/fa";
+import { PiSirenBold,PiSirenFill } from "react-icons/pi";
+import { CgMenuGridO } from "react-icons/cg";
 
+//importando contexto
+import { SidebarStateContext} from "../contexts/SidebarStateContext";
+
+//css style
+import styles from './Sidebar.module.css';
 
 
 const Sidebar = () => {
-
+  const {sideClose, setsideClose } = useContext(SidebarStateContext);
+  
   const menuRef = useRef();
 
   const OnMenuClick = () => {
-    menuRef.current.classList.toggle("close");   
+    setsideClose(!sideClose);
+    menuRef.current.classList.toggle(styles.close); 
+
   };
 
+  //`${styles.firstclass} ${styles.secondclass}`
+
   return (
-    <div className="sidebar close" ref={menuRef} >
-      <div className="logo-details">
-        <i className="menulogo"  onClick={OnMenuClick}><CgMenuGridO /></i>
-        <span className="logo_name">S.G.I.</span>
+    <div className={`${styles.sidebar} ${styles.close}`}ref={menuRef} >
+      <div className={styles.logo_details}>
+        <i className={styles.menulogo}  onClick={OnMenuClick}><CgMenuGridO /></i>
+        <span className={styles.logo_name}>S.G.I.</span>
       </div>
-      <ul className="nav-links">
+      <ul className={styles.nav_links}>
         <SideItem path='/cliente' nome='Clientes' icone={<FaHandsHelping/>}/>
         <SideItem path='/projeto' nome='Projetos' icone={<FaWpforms/>}/>
         <SideItem path='/dash'   nome='DashBoard' icone={<FaTachometerAlt/>}/>
-        <SideItem path='/tabelas'   nome='Tabelas'   icone={<FaTools/>} visivel={true}/>     
+        <SideItem path='/risco'   nome='Ger.Risco'   icone={<PiSirenFill />} visivel={true}/>     
       </ul>
     </div>
   );
@@ -42,10 +49,10 @@ const SideItem = ({path,icone, nome, visivel=true}) => {
              <NavLink
                   to={path}>
                   <i>{icone}</i>
-                  <span className='link_name'>{nome} </span>
+                  <span className={styles.link_name}>{nome} </span>
              </NavLink>  
-             <ul className="sub-menu blank">
-                <li><NavLink className="link_name"to={path}>{nome}</NavLink></li>         
+             <ul className={`${styles.sub_menu} ${styles.blanck}`}>
+                <li><NavLink className={styles.link_name}to={path}>{nome}</NavLink></li>         
               </ul>
         </li>
      );

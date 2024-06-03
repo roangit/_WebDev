@@ -10,16 +10,16 @@ import MainHeader from '../components/MainHeader';
 //css
 import styles from './Cliente.module.css'
 
-const Dash = () => {
+const Risco = () => {
    const {sideClose, setsideClose } = useContext(SidebarStateContext);
 
    const classeSideBar = sideClose ? `${styles.mainContainer} ${styles.sidebarClose}` : `${styles.mainContainer}`
    return (
      <div className={classeSideBar}>
-        <MainHeader titulo='Dashboards'></MainHeader>          
+        <MainHeader titulo='Gestão do Risco'></MainHeader>          
      
      </div>
   )
 }
 
-export default Dash
+export default Risco

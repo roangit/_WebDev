@@ -1,5 +1,4 @@
 import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
-import { useState } from 'react';
 
 //components
 import  {Sidebar} from './components/Sidebar'; 
@@ -8,10 +7,12 @@ import Dash from './pages/Dash';
 import Projeto from './pages/Projeto';
 import Cliente from './pages/Cliente';
 import Login from './pages/Login'
-import Tabelas from './pages/Tabelas';
+import Risco from './pages/Risco';
 
 //contextos
 import { AuthContextProvider } from './contexts/AuthContext';
+import { SidebarStateContextProvider } from './contexts/SidebarStateContext';
+
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
           <AuthContextProvider>
+            <SidebarStateContextProvider>
             <Sidebar />
               <Routes>
                 <Route exact path="/login" element={<Login/>} /> 
@@ -26,8 +28,9 @@ function App() {
                 <Route path="/projeto" element={<Projeto/>}/>
                 <Route path="/cliente" element={<Cliente/>}/>
                 <Route path="/dash" element={<Dash/>}/>
-                <Route path="/tabelas" element={<Tabelas/>}/>
+                <Route path="/risco" element={<Risco/>}/>
               </Routes>
+            </SidebarStateContextProvider>
           </AuthContextProvider>
         </BrowserRouter>
     </div>

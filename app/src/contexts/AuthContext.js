@@ -1,5 +1,4 @@
 import { createContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 // criando contexo
 export const AuthContext = createContext();
@@ -27,3 +26,4 @@ export const AuthContextProvider = ({children}) => {
           </AuthContext.Provider>
      );
 };
+
