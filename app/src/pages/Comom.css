@@ -1,0 +1,9 @@
+* {
+    position: relative;
+    max-width:  700px;
+    background: #e4e9f7;
+    height: 100vh;
+    left: 260px;
+    width: calc(100% - 260px);
+    padding: 12px;
+}

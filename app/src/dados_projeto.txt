@@ -11,7 +11,8 @@ NOME
 INICIO NA FUNÇÃO
 
 
-npx create-react-app app
+npx create-react-app app para criar nova aplicação ou 
+a partir do package.json só dar um npm install
 npm install react-icons --save
 npm install -g json-server
 npm install react-router-dom

@@ -1,5 +1,6 @@
-import React from 'react';
-import { FaTools, FaHandsHelping, FaBars, FaWpforms, FaTachometerAlt } from "react-icons/fa";
+import React, { useRef } from 'react';
+import { FaTools, FaHandsHelping, FaWpforms, FaTachometerAlt } from "react-icons/fa";
+import { CgMenuGridO } from "react-icons/cg";
 /* outros boms icones
 FaCog - engrenagem, FaWrench - 1 chave boca
 */
@@ -8,40 +9,29 @@ import { NavLink } from 'react-router-dom';
 //css
 import "./Sidebar.css";
 
-const OnMouveOverHandle = () => {
-  var elem = document.getElementById("burger-icon");
-  elem.style.transform =  "rotate(90deg)";
-  elem.style.transition = "transform 0.5s 0s ease";
-};
-const OnMouseLeavehandle = () => {
-  var elem = document.getElementById("burger-icon");
-  elem.style.transform =  "rotate(180deg)";
-  elem.style.transition = "transform 0.5s 0s ease";
-};
+
 
 const Sidebar = () => {
+
+  const menuRef = useRef();
+
+  const OnMenuClick = () => {
+    menuRef.current.classList.toggle("close");   
+  };
+
   return (
-    <div className="side-container"
-        onMouseOver={OnMouveOverHandle}
-        onMouseLeave={OnMouseLeavehandle}>
-          <div className="side-header">
-            <div className="burger-icon">
-              <FaBars id="burger-icon"/>
-            </div>
-          </div>
-        <div className="sidebar">       
-          <nav>
-               <ul>
-                    <SideItem path='/cliente' nome='Clientes' icone={<FaHandsHelping/>}/>
-                    <SideItem path='/projeto' nome='Projetos' icone={<FaWpforms/>}/>
-                    <SideItem path='/dash'   nome='DashBoard' icone={<FaTachometerAlt/>}/>
-                    <SideItem path='/tabelas'   nome='Tabelas'   icone={<FaTools/>} visivel={true}/>                   
-               </ul>
-          </nav>       
-        </div>       
-        <div className="side-footer">
-        </div>
+    <div className="sidebar close" ref={menuRef} >
+      <div className="logo-details">
+        <i className="menulogo"  onClick={OnMenuClick}><CgMenuGridO /></i>
+        <span className="logo_name">S.G.I.</span>
       </div>
+      <ul className="nav-links">
+        <SideItem path='/cliente' nome='Clientes' icone={<FaHandsHelping/>}/>
+        <SideItem path='/projeto' nome='Projetos' icone={<FaWpforms/>}/>
+        <SideItem path='/dash'   nome='DashBoard' icone={<FaTachometerAlt/>}/>
+        <SideItem path='/tabelas'   nome='Tabelas'   icone={<FaTools/>} visivel={true}/>     
+      </ul>
+    </div>
   );
 };
 
@@ -52,9 +42,26 @@ const SideItem = ({path,icone, nome, visivel=true}) => {
              <NavLink
                   to={path}>
                   <i>{icone}</i>
-                  <span>{nome} </span>
-             </NavLink>    
+                  <span className='link_name'>{nome} </span>
+             </NavLink>  
+             <ul className="sub-menu blank">
+                <li><NavLink className="link_name"to={path}>{nome}</NavLink></li>         
+              </ul>
         </li>
      );
 }
-export {SideItem, Sidebar}
+
+
+const SideSubItem = ({path, nome, visivel=true}) => {
+  return (
+     <li style={{display: visivel ? 'block' : 'none'}} >  
+          <NavLink
+              className="link_name"
+              to={path}>
+              {nome}
+          </NavLink>    
+     </li>
+  );
+}
+
+export {Sidebar, SideItem, SideSubItem }
