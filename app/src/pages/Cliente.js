@@ -11,11 +11,11 @@ import MainHeader from '../components/MainHeader';
 import styles from './Cliente.module.css'
 
 const Cliente = () => {
-   const {sideClose, setsideClose } = useContext(SidebarStateContext);
+   const {sideClose} = useContext(SidebarStateContext);
 
-   const classeSideBar = sideClose ? `${styles.mainContainer} ${styles.sidebarClose}` : `${styles.mainContainer}`
+   const mainContainer = sideClose ? `${styles.mainContainer} ${styles.sidebarClose}` : `${styles.mainContainer}`
    return (
-     <div className={classeSideBar}>
+     <div className={mainContainer}>
         <MainHeader titulo='Clientes'></MainHeader>          
      
      </div>
