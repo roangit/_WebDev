@@ -29,3 +29,15 @@ npm install react-data-table-component styled-components
 Para rodar na pasta app 
 1º npm run server
 2° npm start
+
+instalando o eslint para verificar padrão de codigo
+npm init @eslint/config@latest
+
+Após ir em configurações > editor de texto, e em action on save add
+
+"editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    },
+
+Após para configurar no terminar use 
+npm init @eslint/config

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 
 //importando contexto
 import { SidebarStateContext} from "../contexts/SidebarStateContext";
