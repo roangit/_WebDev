@@ -8,18 +8,17 @@ import MainHeader from '../components/MainHeader';
 
 
 //css
-import styles from './Projeto.module.css'
+import styles from './Cadastro.module.css'
 
-const Projeto = () => {
+const Cadastro = () => {
    const {sideClose} = useContext(SidebarStateContext);
 
    const mainContainer = sideClose ? `${styles.mainContainer} ${styles.sidebarClose}` : `${styles.mainContainer}`
    return (
      <div className={mainContainer}>
-        <MainHeader titulo='Projetos'></MainHeader>          
-     
+        <MainHeader titulo='Cadastro'></MainHeader>               
      </div>
   )
 }
 
-export default Projeto
+export default Cadastro

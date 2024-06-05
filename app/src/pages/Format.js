@@ -8,20 +8,18 @@ import MainHeader from '../components/MainHeader';
 
 
 //css
-import styles from './Cliente.module.css'
+import styles from './Format.module.css'
 
-const Cliente = () => {
+const Format = () => {
    const {sideClose} = useContext(SidebarStateContext);
 
    const mainContainer = sideClose ? `${styles.mainContainer} ${styles.sidebarClose}` : `${styles.mainContainer}`
    return (
      <div className={mainContainer}>
-        <MainHeader titulo='Clientes'></MainHeader>          
-
-        
+        <MainHeader titulo='Formatações padronizadas'></MainHeader>          
      
      </div>
   )
 }
 
-export default Cliente
+export default Format

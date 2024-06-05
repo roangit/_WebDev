@@ -8,7 +8,7 @@ import MainHeader from '../components/MainHeader';
 
 
 //css
-import styles from './Cliente.module.css'
+import styles from './Dash.module.css'
 
 const Dash = () => {
    const {sideClose} = useContext(SidebarStateContext);

@@ -34,13 +34,13 @@ const Sidebar = () => {
         <span className={styles.logo_name}>S.G.I.</span>
       </div>
       <ul className={styles.nav_links}>
-        <SideItem path='/dash'   nome='DashBoard' icone={<FaChartBar style={iconStyles}/>}/>
-        <SideItem path='/cliente' nome='Cadastro' icone={ <FaArchive style={iconStyles}/>} subItem={true}>
+        <SideItem path='/dash'   nome='DashBoards' icone={<FaChartBar style={iconStyles}/>}/>
+        <SideItem path='/cadastro' nome='Cadastros' icone={ <FaArchive style={iconStyles}/>} subItem={true}>
           <SideSubItem path='/projeto' nome='Técnicos'/>
         </SideItem>
          <SideItem path='/projeto' nome='Projetos' icone={<FaHandsHelping style={iconStyles}/>}/>
         <SideItem path='/risco'   nome='Ger.Risco'   icone={<PiSirenFill style={iconStyles}/>} visivel={true}/>     
-        <SideItem path='/risco'   nome='Formatação'   icone={<FaWpforms style={iconStyles}/>} visivel={true}/>     
+        <SideItem path='/format'   nome='Formatações'   icone={<FaWpforms style={iconStyles}/>} visivel={true}/>     
       </ul>
     </div>
   );

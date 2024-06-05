@@ -8,7 +8,7 @@ import MainHeader from '../components/MainHeader';
 
 
 //css
-import styles from './Cliente.module.css'
+import styles from './Risco.module.css'
 
 const Risco = () => {
    const {sideClose} = useContext(SidebarStateContext);
